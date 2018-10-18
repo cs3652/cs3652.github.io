@@ -1,0 +1,23 @@
+---
+title: "Holy cow!"
+---
+
+### I have a webpage!
+
+And I can put all kinds of stuff on it!
+
+Navbar in the _sit.yml is the top navigation bar
+internal links don't need the full webaddress
+but external webpages do need it 
+
+##add some links
+syntax is square bracket for text that you want to be a link and then the link in regular parentheses
+i like [google tings](https://www.google.com)
+
+link to internal site like [about](about.html)
+
+images. you can create a folder for images or use the same directory. just use the appropriate directory name 
+
+<img src="images/image.jpg" style="width:75%">
+
+use the correct directory and image address 
