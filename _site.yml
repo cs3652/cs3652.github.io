@@ -9,7 +9,7 @@ navbar:
       href: mailto:<you@youremail.com>
     - icon: fa-github fa-lg
       href: http://github.com/cs3652/
-    - icon: fa-github fa-lg
+    - icon: "Google"
       href: https//:www.google.com
 output:
   html_document
