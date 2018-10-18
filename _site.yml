@@ -10,6 +10,7 @@ navbar:
     - icon: fa-github fa-lg
       href: http://github.com/cs3652/
     - icon: "Google"
-      href: http://www.google.com
+      href: http://google.com
 output:
-  html_document
+  html_document:
+    theme: cosmo

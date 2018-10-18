@@ -21,3 +21,9 @@ images. you can create a folder for images or use the same directory. just use t
 <img src="images/image.jpg" style="width:75%">
 
 use the correct directory and image address 
+
+
+```{r}
+library(tidyverse)
+```
+
