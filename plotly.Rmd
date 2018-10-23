@@ -39,4 +39,59 @@ nyc_airbnb %>%
           text = ~text_label)
 ```
 
-Doesn't matter what order the syntax is in once you use plot_ly 
+Doesn't matter what order the syntax is inside the bracket once you use plot_ly 
+
+plotly boxplots
+ 
+```{r}
+nyc_airbnb %>% 
+    plot_ly(y = ~price, color = ~neighbourhood, type = "box", colors = "Set2")
+```
+you can isolate different neighbourhoods with the legend
+```{r}
+common_neighborhoods =
+  nyc_airbnb %>% 
+  count(neighbourhood, sort = TRUE) %>% 
+  top_n(8) %>% 
+  select(neighbourhood)
+## Selecting by n
+
+inner_join(nyc_airbnb, common_neighborhoods,
+             by = "neighbourhood") %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% 
+  plot_ly(y = ~price, color = ~neighbourhood, type = "box",
+          colors = "Set2")
+```
+innerjoin? 
+
+## Bar plots
+
+Trust me you can make this 
+
+```{r}
+nyc_airbnb %>% 
+  count(neighbourhood) %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
+  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar")
+## Warning in RColorBrewer::brewer.pal(N, "Set2"): n too large, allowed maximum for palette Set2 is 8
+## Returning the palette you asked for with that many colors
+```
+
+You can convert a ggplot object straight to an interactive graphic using ggplotly.
+
+For example, the code below recreates our scatterplot using ggplot followed by ggplotly.
+
+```{r}
+scatter_ggplot = 
+  nyc_airbnb %>%
+  ggplot(aes(x = longitude, y = latitude, color = price)) +
+  geom_point(alpha = 0.25) +
+  scale_color_viridis() +
+  coord_cartesian() +
+  theme_classic()
+
+ggplotly(scatter_ggplot)
+```
+ first creat the plot as you want as a ggplot and then convert to a plot_ly. Plot_ly takes way more time and on the backend requires more downloads etc. 
+
+
